@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
+  <div id="app">
   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-nav fixed-top">
       <div class="container">
@@ -39,13 +40,10 @@
     </nav>
     <!-- Navigation -->
   
-	<div id="app">
-  <!-- <ul>
-    <li v-for="post in posts">{{ post.title }}</li>
-  </ul> -->
+
   <div class="container">
   <div class="row">
-  <div class="col-md-6" v-for="post in posts">
+  <div class="col-md-6" v-for="(post,index) in posts" v-if="posts && posts.length > 0 && index <= limitationList">
   <div class="card mt-4 mb-4">
     <a href="#" class="post-img"><img class="card-img-top" v-bind:src="'http://blog.nyeinchansu.me' + post.image" alt="Card image cap"></a>
     <div class="card-body">
@@ -59,17 +57,66 @@
     </div>
   </div>
 </div>
+
 </div>
 </div>
 
-</div>
 
+
+<!-- Footer -->
+    <footer class="bg-footer">
+      <div class="footer-bottom-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h4>About Bloggie News</h4>
+              <p>Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus.</p>
+              <p>
+                <ul class="social-links list-unstyled">
+                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-fw fa-google-plus"></i></a></li>
+                  <li><a href="#"><i class="fab fa-fw fa-instagram"></i></a></li>
+                </ul>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h4>Quick Links</h4>
+              <ul class="list-unstyled">
+                  <li v-for="(post,index) in posts" v-if="posts && posts.length > 0 && index <= limitationList">
+                    <a href="">{{post.type_id}}</a>
+                  </li>
+              </ul>
+              
+            </div>
+            <div class="col-md-4">
+              <h4>Latest News</h4>
+              <ul class="custom-list">
+                <li v-for="(post,index) in posts" v-if="posts && posts.length > 0 && index <= limitationList"><a href="">{{post.title}}</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="copyright-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="m-0 text-center">Copyright &copy; <span style="color:#F70D28;">bloggienews</span> 2018</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- /.container -->
+    </footer>
+</div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="//unpkg.com/vue-plain-pagination@0.2.1"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

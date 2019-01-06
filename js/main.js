@@ -1,9 +1,10 @@
 
-
+Vue.component('v-pagination', window['vue-plain-pagination'])
 new Vue({
   el: '#app',
   data: {
-    posts: []
+    posts: [],
+    limitationList:4,
   },
   created () {
     var vm = this
@@ -13,3 +14,27 @@ new Vue({
       })
   }
 })
+
+
+// new Vue({
+//   el: '#app',
+//   data () {
+//     return {
+//       // The resource variable
+//       posts: [],
+//       // Here you define the url of your paginated API
+//       resource_url: 'http://blog.nyeinchansu.me/api/posts'
+//     }
+//   },
+//   components: {
+//     VPaginator: VuePaginator
+//   },
+//   methods: {
+//     updateResource(data){
+//       this.posts = data
+//     }
+//   }
+// })
+
+
+
