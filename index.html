@@ -48,7 +48,7 @@
     <a href="#" class="post-img"><img class="card-img-top" v-bind:src="'http://blog.nyeinchansu.me' + post.image" alt="Card image cap"></a>
     <div class="card-body">
       <h2 class="card-title"><a href="#" class="post-title">{{post.title}}</a></h2>
-      <p class="card-text">{{post.body}}</p>
+      <p class="card-text">{{post.body.slice(0, 200).replace(/(<([^>]+)>)/ig,"")}}</p>
       <a href="#" class="btn btn-primary">Read More &rarr;</a>
     </div>
     <div class="card-footer text-muted">
